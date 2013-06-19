@@ -254,6 +254,7 @@ MainWindow::formAll()
     catch (std::overflow_error) {
         QMessageBox msgBox(this);
         msgBox.setModal(true);
+        msgBox.setWindowTitle(tr("Viking"));
         msgBox.setText(tr("Wrong parameter value or range."));
         msgBox.exec();
     }
@@ -753,6 +754,7 @@ MainWindow::signalWriteButtonClicked()
 
     int prog = (Signal::total_length / BUFFER_DATA);
     QProgressDialog progress( tr("Writing protocol..."), tr("Abort"), 0, prog, this);
+    progress.setWindowTitle(tr("Viking"));
     progress.setWindowModality(Qt::WindowModal);
     progress.show();
 #ifdef Q_OS_LINUX
