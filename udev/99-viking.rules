@@ -1,0 +1,1 @@
+SUBSYSTEMS=="usb", ATTRS{idProduct}=="6001", ATTRS{idVendor}=="0403", ATTRS{product}=="USB <-> Serial", KERNEL=="ttyUSB*", SYMLINK+="viking", MODE="0666"
