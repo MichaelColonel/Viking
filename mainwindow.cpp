@@ -786,7 +786,7 @@ MainWindow::signalWriteButtonClicked()
                 std::cerr << "Write not full." << std::endl;
             }
 #endif
-            ::usleep(20000);
+            ::usleep(ui->writeTimeoutSpinBox->value());
         }
 #ifdef Q_OS_LINUX
     }

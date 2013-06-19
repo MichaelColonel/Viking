@@ -101,43 +101,43 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1025"/>
+        <location filename="mainwindow.ui" line="1078"/>
         <source>Write Protocol...</source>
         <oldsource>Write Protocol</oldsource>
         <translation>Запись протокола...</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1035"/>
+        <location filename="mainwindow.ui" line="1088"/>
         <source>Start</source>
         <translation>Запуск</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1048"/>
+        <location filename="mainwindow.ui" line="972"/>
         <source>Sync</source>
         <translation>Синхронизация</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1066"/>
+        <location filename="mainwindow.ui" line="990"/>
         <source>Interior</source>
         <translation>Внутреняя</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1085"/>
+        <location filename="mainwindow.ui" line="1009"/>
         <source>Exterior</source>
         <translation>Внешняя</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="966"/>
+        <location filename="mainwindow.ui" line="1019"/>
         <source>Connect</source>
         <translation>Подключить</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="976"/>
+        <location filename="mainwindow.ui" line="1029"/>
         <source>Disconnect</source>
         <translation>Отключить</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="986"/>
+        <location filename="mainwindow.ui" line="1039"/>
         <source>Reset</source>
         <translation>Сброс</translation>
     </message>
@@ -310,6 +310,16 @@
         <location filename="mainwindow.ui" line="836"/>
         <source>Times</source>
         <translation>Кол-во раз</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1095"/>
+        <source>Timeout</source>
+        <translation>Задержка</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1104"/>
+        <source>Write Timeout</source>
+        <translation>Запись протокола</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="258"/>
