@@ -95,6 +95,8 @@ MainWindow::MainWindow(QWidget* parent)
     connect( ui->savePushButton, SIGNAL(clicked()), this, SLOT(signalSaveSettingsClicked()));
     connect( ui->writeLengthPushButton, SIGNAL(clicked()), this, SLOT(signalWriteLengthButtonClicked()));
 
+    connect( ui->fullStartPushButton, SIGNAL(clicked()), this, SLOT(signalFullStartButtonClicked()));
+
     connect( ui->t2SpinBox, SIGNAL(valueChanged(int)), this, SLOT(signalT2Changed(int)));
     connect( ui->t3SpinBox, SIGNAL(valueChanged(int)), this, SLOT(signalT3Changed(int)));
     connect( ui->t4SpinBox, SIGNAL(valueChanged(int)), this, SLOT(signalT4Changed(int)));
@@ -577,6 +579,7 @@ MainWindow::signalConnectButtonClicked()
         ui->resetPushButton->setEnabled(true);
         ui->startPushButton->setEnabled(true);
         ui->writeLengthPushButton->setEnabled(true);
+        ui->fullStartPushButton->setEnabled(true);
         ui->statusBar->showMessage(tr("Device successfully connected"));
     }
     else {
@@ -588,6 +591,7 @@ MainWindow::signalConnectButtonClicked()
         ui->resetPushButton->setEnabled(false);
         ui->startPushButton->setEnabled(false);
         ui->writeLengthPushButton->setEnabled(false);
+        ui->fullStartPushButton->setEnabled(false);
         ui->statusBar->showMessage( tr("Can't connect device"), 3000);
     }
 }
@@ -667,6 +671,7 @@ MainWindow::signalDisconnectButtonClicked()
     ui->resetPushButton->setEnabled(false);
     ui->startPushButton->setEnabled(false);
     ui->writeLengthPushButton->setEnabled(false);
+    ui->fullStartPushButton->setEnabled(false);
 }
 
 void
@@ -998,6 +1003,17 @@ MainWindow::signalT14Changed(int value)
         changeSignalsOffsets();
         formAll();
     }
+}
+
+void
+MainWindow::signalFullStartButtonClicked()
+{
+    signalWriteLengthButtonClicked();
+    ::usleep(1000000);
+    signalResetButtonClicked();
+    ::usleep(1000000);
+    signalWriteButtonClicked();
+    signalStartButtonClicked();
 }
 
 void

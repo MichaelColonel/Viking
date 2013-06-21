@@ -106,13 +106,13 @@
         <translation>Задержка записи протокола</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1087"/>
+        <location filename="mainwindow.ui" line="953"/>
         <source>Write Protocol...</source>
         <oldsource>Write Protocol</oldsource>
         <translation>Запись протокола...</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="966"/>
+        <location filename="mainwindow.ui" line="1113"/>
         <source>Start</source>
         <translation>Запуск</translation>
     </message>
@@ -137,7 +137,7 @@
         <translation>Подключить</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1097"/>
+        <location filename="mainwindow.ui" line="1087"/>
         <source>Disconnect</source>
         <translation>Отключить</translation>
     </message>
@@ -180,8 +180,8 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="14"/>
-        <location filename="mainwindow.cpp" line="257"/>
-        <location filename="mainwindow.cpp" line="757"/>
+        <location filename="mainwindow.cpp" line="259"/>
+        <location filename="mainwindow.cpp" line="762"/>
         <source>Viking</source>
         <translation>Викинг</translation>
     </message>
@@ -316,9 +316,14 @@
         <translation>Кол-во раз</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1113"/>
+        <location filename="mainwindow.ui" line="1103"/>
         <source>Write Timing Length</source>
         <translation>Запись длительности сигнала</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1123"/>
+        <source>Full Start</source>
+        <translation>Полный Запуск</translation>
     </message>
     <message>
         <source>Timeout</source>
@@ -329,48 +334,48 @@
         <translation type="obsolete">Запись протокола</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="258"/>
+        <location filename="mainwindow.cpp" line="260"/>
         <source>Wrong parameter value or range.</source>
         <translation>Неверное значение или диапазон значений.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="580"/>
+        <location filename="mainwindow.cpp" line="583"/>
         <source>Device successfully connected</source>
         <translation>Устройство успешно подключено</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="591"/>
+        <location filename="mainwindow.cpp" line="595"/>
         <source>Can&apos;t connect device</source>
         <translation>Невозможно подключить устройство</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="661"/>
+        <location filename="mainwindow.cpp" line="665"/>
         <source>Device successfully disconnected</source>
         <translation>Устройство успешно отключено</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="697"/>
+        <location filename="mainwindow.cpp" line="702"/>
         <source>Open Settings</source>
         <translation>Открыть файл настроек</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="699"/>
-        <location filename="mainwindow.cpp" line="717"/>
+        <location filename="mainwindow.cpp" line="704"/>
+        <location filename="mainwindow.cpp" line="722"/>
         <source>Settings Files (*.conf)</source>
         <translation>Файлы настроек (*.conf)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="715"/>
+        <location filename="mainwindow.cpp" line="720"/>
         <source>Save Settings</source>
         <translation>Сохранить файл настроек</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="756"/>
+        <location filename="mainwindow.cpp" line="761"/>
         <source>Writing protocol...</source>
         <translation>Запись протокола...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="756"/>
+        <location filename="mainwindow.cpp" line="761"/>
         <source>Abort</source>
         <translation>Прервать</translation>
     </message>

@@ -944,7 +944,17 @@
         <string>Device</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_5">
-        <item row="8" column="1">
+        <item row="7" column="1">
+         <widget class="QPushButton" name="writePushButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Write Protocol...</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
          <spacer name="verticalSpacer">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -956,16 +966,6 @@
            </size>
           </property>
          </spacer>
-        </item>
-        <item row="9" column="1">
-         <widget class="QPushButton" name="startPushButton">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Start</string>
-          </property>
-         </widget>
         </item>
         <item row="2" column="1">
          <spacer name="verticalSpacer_2">
@@ -1078,16 +1078,6 @@
           </property>
          </widget>
         </item>
-        <item row="7" column="1">
-         <widget class="QPushButton" name="writePushButton">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Write Protocol...</string>
-          </property>
-         </widget>
-        </item>
         <item row="1" column="1">
          <widget class="QPushButton" name="disconnectPushButton">
           <property name="enabled">
@@ -1111,6 +1101,26 @@
           </property>
           <property name="text">
            <string>Write Timing Length</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QPushButton" name="startPushButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Start</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QPushButton" name="fullStartPushButton">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="text">
+           <string>Full Start</string>
           </property>
          </widget>
         </item>

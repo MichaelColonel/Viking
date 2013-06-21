@@ -68,6 +68,7 @@ private slots:
     void signalOpenSettingsClicked();
     void signalSaveSettingsClicked();
     void signalWriteLengthButtonClicked();
+    void signalFullStartButtonClicked();
 
     void signalT2Changed(int);
     void signalT3Changed(int);
