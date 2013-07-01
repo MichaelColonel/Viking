@@ -63,7 +63,7 @@ private slots:
     void signalStartButtonClicked();
     void signalSyncRadioButtonToggled(bool);
     void signalWriteButtonClicked();
-    void signalTotalLenghtActivated(const QString& text);
+    void signalApplyButtonClicked();
     void signalNotifierActivated(int);
     void signalOpenSettingsClicked();
     void signalSaveSettingsClicked();

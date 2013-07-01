@@ -44,7 +44,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tabSignalsTest">
        <property name="maximumSize">
@@ -67,8 +67,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>104</width>
-             <height>78</height>
+             <width>256</width>
+             <height>384</height>
             </rect>
            </property>
            <attribute name="label">
@@ -135,8 +135,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>104</width>
-             <height>48</height>
+             <width>256</width>
+             <height>384</height>
             </rect>
            </property>
            <attribute name="label">
@@ -219,8 +219,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>104</width>
-             <height>78</height>
+             <width>256</width>
+             <height>384</height>
             </rect>
            </property>
            <attribute name="label">
@@ -275,8 +275,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>104</width>
-             <height>78</height>
+             <width>256</width>
+             <height>384</height>
             </rect>
            </property>
            <attribute name="label">
@@ -331,8 +331,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>112</width>
-             <height>108</height>
+             <width>256</width>
+             <height>384</height>
             </rect>
            </property>
            <attribute name="label">
@@ -401,8 +401,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>112</width>
-             <height>78</height>
+             <width>256</width>
+             <height>384</height>
             </rect>
            </property>
            <attribute name="label">
@@ -884,42 +884,37 @@
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
           </property>
           <layout class="QGridLayout" name="gridLayout_7">
+           <item row="0" column="2">
+            <widget class="QPushButton" name="applyPushButton">
+             <property name="text">
+              <string>Apply</string>
+             </property>
+            </widget>
+           </item>
            <item row="0" column="0">
-            <widget class="QComboBox" name="totalLenghtComboBox">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
+            <widget class="QSlider" name="totalLengthHorizontalSlider">
+             <property name="minimum">
+              <number>4096</number>
              </property>
-             <property name="currentIndex">
-              <number>2</number>
+             <property name="maximum">
+              <number>65535</number>
              </property>
-             <item>
-              <property name="text">
-               <string>4096</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>8192</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>16384</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>32768</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>65536</string>
-              </property>
-             </item>
+             <property name="value">
+              <number>16384</number>
+             </property>
+             <property name="tracking">
+              <bool>true</bool>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string/>
+             </property>
             </widget>
            </item>
           </layout>
@@ -1160,5 +1155,22 @@
   </customwidget>
  </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>totalLengthHorizontalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>749</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>826</x>
+     <y>309</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

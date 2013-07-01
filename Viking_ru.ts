@@ -8,7 +8,7 @@
         <translation type="obsolete">Основное Окно</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="944"/>
+        <location filename="mainwindow.ui" line="939"/>
         <source>Device</source>
         <translation>Устройство</translation>
     </message>
@@ -50,11 +50,6 @@
         <translation type="obsolete">Запуск АЦП</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="910"/>
-        <source>16384</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="681"/>
         <source>Address</source>
         <translation>Адрес</translation>
@@ -81,68 +76,48 @@
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="900"/>
-        <source>4096</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="905"/>
-        <source>8192</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="915"/>
-        <source>32768</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="920"/>
-        <source>65536</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1052"/>
+        <location filename="mainwindow.ui" line="1047"/>
         <source>Writing Timeout</source>
         <translation>Задержка записи протокола</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="953"/>
+        <location filename="mainwindow.ui" line="948"/>
         <source>Write Protocol...</source>
         <oldsource>Write Protocol</oldsource>
         <translation>Запись протокола...</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1113"/>
+        <location filename="mainwindow.ui" line="1108"/>
         <source>Start</source>
         <translation>Запуск</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1002"/>
+        <location filename="mainwindow.ui" line="997"/>
         <source>Sync</source>
         <translation>Синхронизация</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1020"/>
+        <location filename="mainwindow.ui" line="1015"/>
         <source>Interior</source>
         <translation>Внутреняя</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1039"/>
+        <location filename="mainwindow.ui" line="1034"/>
         <source>Exterior</source>
         <translation>Внешняя</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="989"/>
+        <location filename="mainwindow.ui" line="984"/>
         <source>Connect</source>
         <translation>Подключить</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1087"/>
+        <location filename="mainwindow.ui" line="1082"/>
         <source>Disconnect</source>
         <translation>Отключить</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1077"/>
+        <location filename="mainwindow.ui" line="1072"/>
         <source>Reset</source>
         <translation>Сброс</translation>
     </message>
@@ -180,8 +155,8 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="14"/>
-        <location filename="mainwindow.cpp" line="259"/>
-        <location filename="mainwindow.cpp" line="762"/>
+        <location filename="mainwindow.cpp" line="258"/>
+        <location filename="mainwindow.cpp" line="755"/>
         <source>Viking</source>
         <translation>Викинг</translation>
     </message>
@@ -316,12 +291,17 @@
         <translation>Кол-во раз</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1103"/>
+        <location filename="mainwindow.ui" line="890"/>
+        <source>Apply</source>
+        <translation>Применить</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1098"/>
         <source>Write Timing Length</source>
         <translation>Запись длительности сигнала</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1123"/>
+        <location filename="mainwindow.ui" line="1118"/>
         <source>Full Start</source>
         <translation>Полный Запуск</translation>
     </message>
@@ -334,48 +314,48 @@
         <translation type="obsolete">Запись протокола</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="260"/>
+        <location filename="mainwindow.cpp" line="259"/>
         <source>Wrong parameter value or range.</source>
         <translation>Неверное значение или диапазон значений.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="583"/>
+        <location filename="mainwindow.cpp" line="582"/>
         <source>Device successfully connected</source>
         <translation>Устройство успешно подключено</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="595"/>
+        <location filename="mainwindow.cpp" line="594"/>
         <source>Can&apos;t connect device</source>
         <translation>Невозможно подключить устройство</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="665"/>
+        <location filename="mainwindow.cpp" line="658"/>
         <source>Device successfully disconnected</source>
         <translation>Устройство успешно отключено</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="702"/>
+        <location filename="mainwindow.cpp" line="695"/>
         <source>Open Settings</source>
         <translation>Открыть файл настроек</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="704"/>
-        <location filename="mainwindow.cpp" line="722"/>
+        <location filename="mainwindow.cpp" line="697"/>
+        <location filename="mainwindow.cpp" line="715"/>
         <source>Settings Files (*.conf)</source>
         <translation>Файлы настроек (*.conf)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="720"/>
+        <location filename="mainwindow.cpp" line="713"/>
         <source>Save Settings</source>
         <translation>Сохранить файл настроек</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="761"/>
+        <location filename="mainwindow.cpp" line="754"/>
         <source>Writing protocol...</source>
         <translation>Запись протокола...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="761"/>
+        <location filename="mainwindow.cpp" line="754"/>
         <source>Abort</source>
         <translation>Прервать</translation>
     </message>

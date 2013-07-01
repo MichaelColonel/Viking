@@ -89,7 +89,7 @@ MainWindow::MainWindow(QWidget* parent)
     connect( ui->intSyncRadioButton, SIGNAL(toggled(bool)), this, SLOT(signalSyncRadioButtonToggled(bool)));
 
     connect( ui->writePushButton, SIGNAL(clicked()), this, SLOT(signalWriteButtonClicked()));
-    connect( ui->totalLenghtComboBox, SIGNAL(activated(QString)), this, SLOT(signalTotalLenghtActivated(QString)));
+    connect( ui->applyPushButton, SIGNAL(clicked()), this, SLOT(signalApplyButtonClicked()));
 
     connect( ui->openPushButton, SIGNAL(clicked()), this, SLOT(signalOpenSettingsClicked()));
     connect( ui->savePushButton, SIGNAL(clicked()), this, SLOT(signalSaveSettingsClicked()));
@@ -190,11 +190,10 @@ MainWindow::loadSettings(const QString& filename)
     }
     delete settings;
 
-    int index = ui->totalLenghtComboBox->findText(QString::number(int(Signal::total_length)));
-    if (index != -1) {
-        ui->totalLenghtComboBox->setCurrentIndex(index);
-        ui->plotterWidget->setLength(Signal::total_length);
-    }
+
+    ui->totalLengthHorizontalSlider->setValue(Signal::total_length);
+    ui->plotterWidget->setLength(Signal::total_length);
+
     ui->lengthPulseSpinBox->setMaximum(Signal::total_length);
     ui->offsetPulseSpinBox->setMaximum(Signal::total_length);
     ui->offsetClockSpinBox->setMaximum(Signal::total_length);
@@ -597,58 +596,52 @@ MainWindow::signalConnectButtonClicked()
 }
 
 void
-MainWindow::signalTotalLenghtActivated(const QString& str)
+MainWindow::signalApplyButtonClicked()
 {
-    bool ok  = false;
-    int value = str.toInt(&ok);
-    if (ok) {
-        ratio = double(Signal::total_length) / double(value);
-        Signal::total_length = value;
-        Signal::ratio = ratio;
+    int value = ui->totalLengthHorizontalSlider->value();
 
-        ui->plotterWidget->setLength(value);
+    ratio = double(Signal::total_length) / double(value);
+    Signal::total_length = value;
+    Signal::ratio = ratio;
 
-        int i = 0;
-        while (pTimingParams[i].signal) {
-            Signal* signal = 0;
-            switch (pTimingParams[i].type) {
-            case PULSE:
-                signal = dynamic_cast<Pulse*>(pTimingParams[i].signal);
-                break;
-            case CLOCK:
-                signal = dynamic_cast<Clock*>(pTimingParams[i].signal);
-                break;
-            case LEVEL:
-            case NONE:
-            default:
-                break;
-            }
-            if (signal)
-                signal->changeRatio();
-            ++i;
+    ui->plotterWidget->setLength(value);
+
+    int i = 0;
+    while (pTimingParams[i].signal) {
+        Signal* signal = 0;
+        switch (pTimingParams[i].type) {
+        case PULSE:
+            signal = dynamic_cast<Pulse*>(pTimingParams[i].signal);
+            break;
+        case CLOCK:
+            signal = dynamic_cast<Clock*>(pTimingParams[i].signal);
+            break;
+        case LEVEL:
+        case NONE:
+        default:
+            break;
         }
-
-        for ( int i = 2; i < 15; ++i) {
-            setTn(i);
-        }
-        changeSignalsOffsets();
-        formAll();
+        if (signal)
+            signal->changeRatio();
+        ++i;
     }
+
+    for ( int i = 2; i < 15; ++i)
+        setTn(i);
+
+    changeSignalsOffsets();
+    formAll();
 }
 
 void
 MainWindow::signalWriteLengthButtonClicked()
 {
-    QString str = ui->totalLenghtComboBox->currentText();
-    bool ok  = false;
-    int value = str.toInt(&ok);
-    if (ok) {
-        value--;
-        char buf[3] = { 'L' };
-        buf[1] = static_cast<char>((value >> 8) & 0xFF);
-        buf[2] = static_cast<char>(value & 0xFF);
-        write(buf);
-    }
+    int value = ui->totalLengthHorizontalSlider->value();
+
+    char buf[3] = { 'L' };
+    buf[1] = static_cast<char>(value >> 8 & 0xFF); // high byte
+    buf[2] = static_cast<char>(value & 0xFF); // low byte
+    write(buf);
 }
 
 void
