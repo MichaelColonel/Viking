@@ -97,6 +97,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     connect( ui->fullStartPushButton, SIGNAL(clicked()), this, SLOT(signalFullStartButtonClicked()));
 
+    connect( ui->checkBoxTimingSettings, SIGNAL(toggled(bool)), this, SLOT(signalTimingSettings(bool)));
     connect( ui->t2SpinBox, SIGNAL(valueChanged(int)), this, SLOT(signalT2Changed(int)));
     connect( ui->t3SpinBox, SIGNAL(valueChanged(int)), this, SLOT(signalT3Changed(int)));
     connect( ui->t4SpinBox, SIGNAL(valueChanged(int)), this, SLOT(signalT4Changed(int)));
@@ -493,8 +494,10 @@ MainWindow::signalClockTimesChanged(int value)
     Clock* clock = dynamic_cast<Clock*>(pTimingParams[currentChart].signal);
     clock->times = value;
 
-    for ( unsigned int i = 2; i < 15; ++i) {
-        setTn(i);
+    if (ui->checkBoxTimingSettings->isChecked()) {
+        for ( unsigned int i = 2; i < 15; ++i) {
+            setTn(i);
+        }
     }
     changeSignalsOffsets();
     formAll();
@@ -556,6 +559,13 @@ MainWindow::formByteArray()
 void
 MainWindow::signalConnectButtonClicked()
 {
+    quint8 *buf = formByteArray();
+    for ( unsigned int i = 0; i < Signal::total_length; ++i)
+        std::cout << (quint16)buf[i] << " ";
+    std::cout << std::endl;
+
+    delete [] buf;
+
 #ifdef Q_OS_LINUX
     fd = ::open( "/dev/viking", O_RDWR);
 #elif defined(Q_OS_WIN32)
@@ -626,8 +636,11 @@ MainWindow::signalApplyButtonClicked()
         ++i;
     }
 
-    for ( int i = 2; i < 15; ++i)
-        setTn(i);
+    if (ui->checkBoxTimingSettings->isChecked()) {
+        for ( unsigned int i = 2; i < 15; ++i) {
+            setTn(i);
+        }
+    }
 
     changeSignalsOffsets();
     formAll();
@@ -768,6 +781,7 @@ MainWindow::signalWriteButtonClicked()
             ::memset( buffer, 0, BUFFER_SIZE);
             buffer[0] = 'D';
             ::memcpy( buffer + HEADER_SIZE, buf + i * BUFFER_DATA, BUFFER_DATA);
+
 #ifdef Q_OS_LINUX
             result = file.write( buffer, BUFFER_SIZE);
             if (result != BUFFER_SIZE) {
@@ -844,6 +858,9 @@ MainWindow::signalNotifierActivated(int)
 void
 MainWindow::signalT2Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Pulse* pulse = dynamic_cast<Pulse*>(pTimingParams[0].signal);
         pulse->length = value;
@@ -855,6 +872,9 @@ MainWindow::signalT2Changed(int value)
 void
 MainWindow::signalT3Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Pulse* pulse_prev = dynamic_cast<Pulse*>(pTimingParams[0].signal);
         Pulse* pulse_next = dynamic_cast<Pulse*>(pTimingParams[1].signal);
@@ -867,6 +887,9 @@ MainWindow::signalT3Changed(int value)
 void
 MainWindow::signalT4Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Pulse* pulse = dynamic_cast<Pulse*>(pTimingParams[1].signal);
         pulse->length = value;
@@ -878,6 +901,9 @@ MainWindow::signalT4Changed(int value)
 void
 MainWindow::signalT5Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Pulse* pulse_prev = dynamic_cast<Pulse*>(pTimingParams[1].signal);
         Pulse* pulse_next = dynamic_cast<Pulse*>(pTimingParams[2].signal);
@@ -890,6 +916,9 @@ MainWindow::signalT5Changed(int value)
 void
 MainWindow::signalT6Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Pulse* pulse_prev = dynamic_cast<Pulse*>(pTimingParams[2].signal);
         Pulse* pulse_next = dynamic_cast<Pulse*>(pTimingParams[3].signal);
@@ -902,6 +931,9 @@ MainWindow::signalT6Changed(int value)
 void
 MainWindow::signalT7Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Pulse* pulse = dynamic_cast<Pulse*>(pTimingParams[3].signal);
         pulse->length = value;
@@ -913,6 +945,9 @@ MainWindow::signalT7Changed(int value)
 void
 MainWindow::signalT8Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Pulse* pulse_prev = dynamic_cast<Pulse*>(pTimingParams[3].signal);
         Pulse* pulse_next = dynamic_cast<Pulse*>(pTimingParams[4].signal);
@@ -925,6 +960,9 @@ MainWindow::signalT8Changed(int value)
 void
 MainWindow::signalT9Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Pulse* pulse = dynamic_cast<Pulse*>(pTimingParams[4].signal);
         pulse->length = value;
@@ -936,6 +974,9 @@ MainWindow::signalT9Changed(int value)
 void
 MainWindow::signalT10Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Pulse* pulse = dynamic_cast<Pulse*>(pTimingParams[4].signal);
         Clock* clock_prev = dynamic_cast<Clock*>(pTimingParams[5].signal);
@@ -950,6 +991,9 @@ MainWindow::signalT10Changed(int value)
 void
 MainWindow::signalT11Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Clock* clock = dynamic_cast<Clock*>(pTimingParams[5].signal);
         clock->pulse.offset = clock->pulse.offset + clock->pulse.length - value;
@@ -963,6 +1007,9 @@ MainWindow::signalT11Changed(int value)
 void
 MainWindow::signalT12Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Clock* clock_prev = dynamic_cast<Clock*>(pTimingParams[5].signal);
         Clock* clock_next = dynamic_cast<Clock*>(pTimingParams[7].signal);
@@ -977,6 +1024,9 @@ MainWindow::signalT12Changed(int value)
 void
 MainWindow::signalT13Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Clock* clock_prev = dynamic_cast<Clock*>(pTimingParams[5].signal);
         Clock* clock_next = dynamic_cast<Clock*>(pTimingParams[7].signal);
@@ -989,6 +1039,9 @@ MainWindow::signalT13Changed(int value)
 void
 MainWindow::signalT14Changed(int value)
 {
+    if (!ui->checkBoxTimingSettings->isChecked())
+        return;
+
     if (!bIgnore) {
         Clock* clock = dynamic_cast<Clock*>(pTimingParams[7].signal);
         clock->pulse.offset += clock->pulse.length - value;
@@ -1001,12 +1054,21 @@ MainWindow::signalT14Changed(int value)
 void
 MainWindow::signalFullStartButtonClicked()
 {
-    signalWriteLengthButtonClicked();
-    ::usleep(1000000);
     signalResetButtonClicked();
     ::usleep(1000000);
     signalWriteButtonClicked();
     signalStartButtonClicked();
+}
+
+void
+MainWindow::signalTimingSettings(bool state)
+{
+    if (state) {
+        for ( unsigned int i = 2; i < 15; ++i) {
+            setTn(i);
+        }
+        changeSignalsOffsets();
+    }
 }
 
 void

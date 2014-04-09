@@ -49,6 +49,7 @@ private:
 private slots:
     void signalCurrentItemChanged(QListWidgetItem*);
     void signalCurrentRowChanged(int);
+    void signalTimingSettings(bool);
 
     void signalLevelChanged();
     void signalPulseOffsetChanged(int);

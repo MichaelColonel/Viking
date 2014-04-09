@@ -245,13 +245,13 @@ void Plotter::drawGrid(QPainter *painter)
         return;
 
     PlotSettings settings = zoomStack[curZoom];
-#ifdef Q_OS_WIN32
+//#ifdef Q_OS_WIN32
     QPen quiteDark = palette().dark().color();
     QPen light = palette().dark().color().darker();
-#else
-    QPen quiteDark = palette().dark().color().darker();
-    QPen light = palette().dark().color().light();
-#endif
+//#else
+//    QPen quiteDark = palette().dark().color().darker();
+//    QPen light = palette().dark().color().light();
+//#endif
     quiteDark.setStyle(Qt::DashDotLine);
     light.setStyle(Qt::DashDotLine);
 

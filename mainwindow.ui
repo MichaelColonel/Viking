@@ -44,7 +44,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabSignalsTest">
        <property name="maximumSize">
@@ -57,10 +57,10 @@
         <string>&quot;t&quot; Timings</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_11">
-        <item row="0" column="0">
+        <item row="1" column="0">
          <widget class="QToolBox" name="toolBoxSignalsTest">
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="page2">
            <property name="geometry">
@@ -68,7 +68,7 @@
              <x>0</x>
              <y>0</y>
              <width>256</width>
-             <height>384</height>
+             <height>339</height>
             </rect>
            </property>
            <attribute name="label">
@@ -136,7 +136,7 @@
              <x>0</x>
              <y>0</y>
              <width>256</width>
-             <height>384</height>
+             <height>339</height>
             </rect>
            </property>
            <attribute name="label">
@@ -178,7 +178,7 @@
              <x>0</x>
              <y>0</y>
              <width>256</width>
-             <height>384</height>
+             <height>339</height>
             </rect>
            </property>
            <attribute name="label">
@@ -220,7 +220,7 @@
              <x>0</x>
              <y>0</y>
              <width>256</width>
-             <height>384</height>
+             <height>339</height>
             </rect>
            </property>
            <attribute name="label">
@@ -276,7 +276,7 @@
              <x>0</x>
              <y>0</y>
              <width>256</width>
-             <height>384</height>
+             <height>339</height>
             </rect>
            </property>
            <attribute name="label">
@@ -332,7 +332,7 @@
              <x>0</x>
              <y>0</y>
              <width>256</width>
-             <height>384</height>
+             <height>339</height>
             </rect>
            </property>
            <attribute name="label">
@@ -402,7 +402,7 @@
              <x>0</x>
              <y>0</y>
              <width>256</width>
-             <height>384</height>
+             <height>339</height>
             </rect>
            </property>
            <attribute name="label">
@@ -452,6 +452,13 @@
             </item>
            </layout>
           </widget>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="checkBoxTimingSettings">
+          <property name="text">
+           <string>Enable timing settings</string>
+          </property>
          </widget>
         </item>
        </layout>
@@ -891,8 +898,18 @@
              </property>
             </widget>
            </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
            <item row="0" column="0">
             <widget class="QSlider" name="totalLengthHorizontalSlider">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="minimum">
               <number>4096</number>
              </property>
@@ -907,13 +924,6 @@
              </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label">
-             <property name="text">
-              <string/>
              </property>
             </widget>
            </item>
@@ -1131,7 +1141,7 @@
      <x>0</x>
      <y>0</y>
      <width>944</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
