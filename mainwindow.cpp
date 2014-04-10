@@ -433,10 +433,13 @@ MainWindow::signalPulseOffsetChanged(int value)
         return;
     }
 
-    for ( int i = 2; i < 15; ++i) {
-        setTn(i);
+
+    if (ui->checkBoxTimingSettings->isChecked()) {
+        for ( unsigned int i = 2; i < 15; ++i) {
+            setTn(i);
+        }
+        changeSignalsOffsets();
     }
-    changeSignalsOffsets();
     formAll();
 }
 
@@ -462,10 +465,12 @@ MainWindow::signalPulseLengthChanged(int value)
         return;
     }
 
-    for ( int i = 2; i < 15; ++i) {
-        setTn(i);
+    if (ui->checkBoxTimingSettings->isChecked()) {
+        for ( unsigned int i = 2; i < 15; ++i) {
+            setTn(i);
+        }
+        changeSignalsOffsets();
     }
-    changeSignalsOffsets();
     formAll();
 }
 
@@ -478,10 +483,12 @@ MainWindow::signalClockOffsetChanged(int value)
     Clock* clock = dynamic_cast<Clock*>(pTimingParams[currentChart].signal);
     clock->offset = value;
 
-    for ( unsigned int i = 2; i < 15; ++i) {
-        setTn(i);
+    if (ui->checkBoxTimingSettings->isChecked()) {
+        for ( unsigned int i = 2; i < 15; ++i) {
+            setTn(i);
+        }
+        changeSignalsOffsets();
     }
-    changeSignalsOffsets();
     formAll();
 }
 
@@ -498,8 +505,8 @@ MainWindow::signalClockTimesChanged(int value)
         for ( unsigned int i = 2; i < 15; ++i) {
             setTn(i);
         }
+        changeSignalsOffsets();
     }
-    changeSignalsOffsets();
     formAll();
 }
 
@@ -640,9 +647,8 @@ MainWindow::signalApplyButtonClicked()
         for ( unsigned int i = 2; i < 15; ++i) {
             setTn(i);
         }
+        changeSignalsOffsets();
     }
-
-    changeSignalsOffsets();
     formAll();
 }
 
@@ -1039,8 +1045,9 @@ MainWindow::signalT13Changed(int value)
 void
 MainWindow::signalT14Changed(int value)
 {
-    if (!ui->checkBoxTimingSettings->isChecked())
+    if (!ui->checkBoxTimingSettings->isChecked()) {
         return;
+    }
 
     if (!bIgnore) {
         Clock* clock = dynamic_cast<Clock*>(pTimingParams[7].signal);
